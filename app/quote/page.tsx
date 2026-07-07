@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import VoiceInput from "@/components/VoiceInput";
 
 export default function QuotePage() {
   const [job, setJob] = useState("");
@@ -49,12 +50,19 @@ export default function QuotePage() {
       <form onSubmit={generateQuote} style={{ display: "grid", gap: 12 }}>
         <label>
           Job
-          <input
+          <textarea
             value={job}
             onChange={(event) => setJob(event.target.value)}
-            placeholder="Enter a job"
-            style={{ display: "block", width: "100%", marginTop: 4 }}
+            placeholder="Describe the work..."
+            style={{ display: "block", width: "100%", marginTop: 4, minHeight: 96, padding: 8 }}
           />
+          <div style={{ marginTop: 8 }}>
+            <VoiceInput
+              onTranscript={(text) => {
+                setJob((previous) => (previous ? `${previous} ${text}` : text));
+              }}
+            />
+          </div>
         </label>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           <button

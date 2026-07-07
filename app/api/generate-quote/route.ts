@@ -1,7 +1,8 @@
+import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
 export async function GET() {
-  return Response.json({ ok: true, message: "route works" });
+  return NextResponse.json({ ok: true, message: "route works" });
 }
 
 export async function POST(request: Request) {
@@ -13,8 +14,6 @@ export async function POST(request: Request) {
 
   try {
     const quote = `Estimated project cost for ${job}: $500 - $2000 (AI mock response) | Budget: ${budget} | Urgency: ${urgency} | Client: ${clientType}`;
-
-    console.log("AI RESPONSE:", quote);
 
     try {
       await supabase.from("Quotes").insert({
@@ -28,10 +27,10 @@ export async function POST(request: Request) {
       console.error("Failed to save quote to Supabase", saveError);
     }
 
-    return Response.json({ ok: true, quote });
+    return NextResponse.json({ ok: true, quote });
   } catch (error) {
     console.error("OpenAI quote generation failed", error);
-    return Response.json(
+    return NextResponse.json(
       {
         ok: false,
         error: "Failed to generate quote with OpenAI",
