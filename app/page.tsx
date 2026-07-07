@@ -33,11 +33,31 @@ export default function HomePage() {
   );
 }
 
-function Feature({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+function Feature({
+  icon,
+  title,
+  text,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+}) {
   return (
-    <div className="rounded-2xl border p-8">
-      <div className="mb-4">{icon}</div>
+    <div
+      className="
+        rounded-2xl
+        border
+        p-8
+        transition
+        hover:shadow-xl
+        hover:-translate-y-1
+        cursor-pointer
+      "
+    >
+      <div className="mb-4 text-black">{icon}</div>
+
       <h3 className="text-xl font-semibold">{title}</h3>
+
       <p className="mt-3 text-gray-600">{text}</p>
     </div>
   );
