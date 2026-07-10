@@ -1,6 +1,5 @@
-import { Mic, FileText, Zap } from "lucide-react";
+import { Mic } from "lucide-react";
 import Link from "next/link";
-import FeatureCard from "@/components/FeatureCard";
 import Navbar from "@/components/Navbar";
 
 export default function HomePage() {
@@ -29,7 +28,7 @@ export default function HomePage() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="/ai-quotes"
+              href="/workspace"
               className="rounded-xl bg-violet-600 px-8 py-4 font-semibold text-white shadow-lg shadow-violet-600/30 transition hover:bg-violet-500"
             >
               Start Free Quote
@@ -47,33 +46,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-20 md:grid-cols-3">
-        <Link href="/ai-quotes">
-          <div className="mb-3 text-teal-500">
-            <Mic />
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <Link
+          href="/workspace"
+          className="flex items-center justify-between rounded-3xl border border-white/10 bg-white/5 px-6 py-5 text-left backdrop-blur transition hover:border-violet-400/40 hover:bg-white/10"
+        >
+          <div>
+            <div className="mb-2 inline-flex items-center gap-2 text-teal-400">
+              <Mic />
+              <span className="text-sm font-semibold uppercase tracking-[0.24em]">AI Professional Quotes</span>
+            </div>
+            <p className="max-w-2xl text-zinc-400">
+              Describe the job naturally and let AI structure the estimate.
+            </p>
           </div>
-          <FeatureCard
-            title="AI Professional Quotes"
-            description="Describe the job naturally and let AI structure the estimate."
-          />
-        </Link>
-        <Link href="/dashboard#analytics">
-          <div className="mb-3 text-amber-500">
-            <FileText />
-          </div>
-          <FeatureCard
-            title="Business Insights"
-            description="See revenue, margins, and quote performance at a glance."
-          />
-        </Link>
-        <Link href="/dashboard">
-          <div className="mb-3 text-violet-500">
-            <Zap />
-          </div>
-          <FeatureCard
-            title="Save Hours"
-            description="Spend less time estimating and more time working."
-          />
+          <span className="text-sm font-semibold text-violet-300">Open Workspace</span>
         </Link>
       </section>
     </main>

@@ -17,7 +17,7 @@ export default function Dashboard() {
         title="Good Morning"
         subtitle="Your business overview and quick actions at a glance."
         action={
-          <Link href="/ai-quotes" className="rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:bg-violet-500">
+          <Link href="/workspace" className="rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:bg-violet-500">
             Create Quote
           </Link>
         }
@@ -48,7 +48,7 @@ export default function Dashboard() {
           <section className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow-xl shadow-black/20">
             <h2 className="mb-4 text-xl font-bold text-white">Quick Actions</h2>
 
-            <Link href="/ai-quotes" className="mb-4 flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-4 text-zinc-300 transition hover:border-violet-500/50 hover:text-white">
+            <Link href="/workspace" className="mb-4 flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-4 text-zinc-300 transition hover:border-violet-500/50 hover:text-white">
               <Mic size={18} />
               Create AI Quote
             </Link>

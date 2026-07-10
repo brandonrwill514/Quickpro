@@ -17,7 +17,7 @@ const items = [
   },
   {
     title: "AI Professional Quotes",
-    href: "/ai-quotes",
+    href: "/workspace",
     icon: Mic,
   },
   {
