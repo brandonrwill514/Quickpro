@@ -52,7 +52,8 @@ export default function ProfileSetupPage() {
 
       console.log(profile);
 
-      router.push("/dashboard");
+      localStorage.setItem("quickquoProfileComplete", "true");
+      router.push("/app-dashboard");
 
     }
 
