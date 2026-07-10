@@ -52,7 +52,7 @@ export default function ProfileSetupPage() {
 
       console.log(profile);
 
-      router.push("/dashboard");
+      router.push("/platform");
 
     }
 
