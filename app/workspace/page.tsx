@@ -1,6 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Mic,
+  Sparkles,
+  Upload,
+  FileText,
+  DollarSign,
+  Clock,
+  TrendingUp
+} from "lucide-react";
 
 export default function WorkspacePage() {
   const [description, setDescription] = useState("");
@@ -14,7 +23,7 @@ export default function WorkspacePage() {
       const response = await fetch("/api/extract-job", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           description,
@@ -24,9 +33,12 @@ export default function WorkspacePage() {
       const data = await response.json();
 
       if (data.summary) {
-        setAnalysis(data.summary);
+        setAnalysis(
+          data.summary ||
+          "No AI analysis returned."
+        );
       } else {
-        setAnalysis("AI analysis unavailable.");
+        setAnalysis("Unable to analyze project.");
       }
     } catch (error) {
       console.error(error);
