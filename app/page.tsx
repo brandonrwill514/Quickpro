@@ -29,7 +29,7 @@ export default function HomePage() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="/quote"
+              href="/ai-quotes"
               className="rounded-xl bg-violet-600 px-8 py-4 font-semibold text-white shadow-lg shadow-violet-600/30 transition hover:bg-violet-500"
             >
               Start Free Quote
@@ -48,22 +48,22 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-8 px-6 py-20 md:grid-cols-3">
-        <Link href="/quote">
+        <Link href="/ai-quotes">
           <div className="mb-3 text-teal-500">
             <Mic />
           </div>
           <FeatureCard
-            title="Voice AI"
+            title="AI Professional Quotes"
             description="Describe the job naturally and let AI structure the estimate."
           />
         </Link>
-        <Link href="/quote">
+        <Link href="/dashboard#analytics">
           <div className="mb-3 text-amber-500">
             <FileText />
           </div>
           <FeatureCard
-            title="Professional Quotes"
-            description="Generate clear client-ready proposals instantly."
+            title="Business Insights"
+            description="See revenue, margins, and quote performance at a glance."
           />
         </Link>
         <Link href="/dashboard">

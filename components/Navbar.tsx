@@ -10,7 +10,7 @@ export default function Navbar() {
         <h2 className="text-xl font-bold tracking-tight text-white">AI-powered quoting for modern contractors</h2>
       </div>
 
-      <Link href="/quote" className="rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:bg-violet-500">
+      <Link href="/ai-quotes" className="rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:bg-violet-500">
         Create Quote
       </Link>
     </header>

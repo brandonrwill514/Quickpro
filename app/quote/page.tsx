@@ -1,16 +1,5 @@
-import QuoteWorkspace from "@/components/QuoteWorkspace";
-import PageLayout from "@/components/PageLayout";
-import PageHeader from "@/components/PageHeader";
+import { redirect } from "next/navigation";
 
 export default function QuotePage() {
-  return (
-    <PageLayout>
-      <PageHeader
-        title="Create Quote"
-        subtitle="Describe the job, let AI analyse it, then generate a professional estimate."
-      />
-
-      <QuoteWorkspace />
-    </PageLayout>
-  );
+  redirect("/ai-quotes");
 }
