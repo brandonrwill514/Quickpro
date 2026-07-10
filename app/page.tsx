@@ -28,7 +28,7 @@ export default function HomePage() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="/workspace"
+              href="/dashboard"
               className="rounded-xl bg-violet-600 px-8 py-4 font-semibold text-white shadow-lg shadow-violet-600/30 transition hover:bg-violet-500"
             >
               Start Free Quote
@@ -48,7 +48,7 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-7xl px-6 py-20">
         <Link
-          href="/workspace"
+          href="/dashboard"
           className="flex items-center justify-between rounded-3xl border border-white/10 bg-white/5 px-6 py-5 text-left backdrop-blur transition hover:border-violet-400/40 hover:bg-white/10"
         >
           <div>
