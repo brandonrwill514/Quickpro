@@ -1,67 +1,331 @@
+"use client";
+
 import Link from "next/link";
-import { Mic, ArrowRight } from "lucide-react";
-import PageLayout from "@/components/PageLayout";
-import PageHeader from "@/components/PageHeader";
-import DashboardStats from "@/components/DashboardStats";
-import QuoteCard from "@/components/QuoteCard";
+import {
+  Sparkles,
+  FileText,
+  TrendingUp,
+  Clock,
+  Mic
+} from "lucide-react";
 
-const recentQuotes = [
-  { id: "1", customer: "Johnson Electrical", amount: "$3,200", status: "sent" as const },
-  { id: "2", customer: "Smith HVAC", amount: "$4,100", status: "accepted" as const },
-];
 
-export default function Dashboard() {
-  return (
-    <PageLayout>
-      <PageHeader
-        title="Good Morning"
-        subtitle="Your business overview and quick actions at a glance."
-        action={
-          <Link href="/workspace" className="rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:bg-violet-500">
-            Create Quote
-          </Link>
-        }
-      />
+export default function DashboardPage(){
 
-      <div className="space-y-8">
-        <DashboardStats revenue="$48,200" quotes="37" profit="$14,600" />
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow-xl shadow-black/20 lg:col-span-2">
-            <h2 className="mb-6 text-xl font-bold text-white">Recent Quotes</h2>
+return (
 
-            <div className="grid grid-cols-[1.2fr_1fr_1fr] gap-4 border-b border-zinc-800 pb-3 text-sm uppercase tracking-[0.2em] text-zinc-500">
-              <span>Customer</span>
-              <span>Project</span>
-              <span>Status</span>
-            </div>
+<main className="
+min-h-screen
+bg-zinc-950
+text-white
+p-8
+">
 
-            {recentQuotes.map((item) => (
-              <div key={item.id} className="grid grid-cols-[1.2fr_1fr_1fr] gap-4 border-b border-zinc-800 py-4 text-white last:border-0">
-                <span>{item.customer}</span>
-                <span className="text-zinc-300">{item.amount}</span>
-                <span className={item.status === "accepted" ? "text-green-400" : "text-violet-400"}>{item.status === "accepted" ? "Accepted" : "Sent"}</span>
-              </div>
-            ))}
-          </section>
 
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow-xl shadow-black/20">
-            <h2 className="mb-4 text-xl font-bold text-white">Quick Actions</h2>
+<div className="
+max-w-7xl
+mx-auto
+">
 
-            <Link href="/workspace" className="mb-4 flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-4 text-zinc-300 transition hover:border-violet-500/50 hover:text-white">
-              <Mic size={18} />
-              Create AI Quote
-            </Link>
 
-            <Link href="/quote-history" className="mb-4 flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-4 text-zinc-300 transition hover:border-violet-500/50 hover:text-white">
-              <ArrowRight size={18} />
-              View Recent Quotes
-            </Link>
+{/* HEADER */}
 
-            <p className="mt-4 text-sm text-zinc-400">This month: 42 quotes created · $58,000 revenue</p>
-          </section>
-        </div>
-      </div>
-    </PageLayout>
-  );
+<div className="mb-10">
+
+<h1 className="
+text-4xl
+font-bold
+">
+
+Welcome back
+
+</h1>
+
+
+<p className="
+text-zinc-400
+mt-3
+text-lg
+">
+
+Create professional quotes faster with AI.
+
+</p>
+
+</div>
+
+
+
+
+{/* QUICK ACTION */}
+
+<section className="
+bg-gradient-to-br
+from-violet-600
+to-teal-500
+rounded-3xl
+p-8
+mb-8
+">
+
+
+<div className="
+flex
+items-center
+gap-3
+mb-4
+">
+
+<Sparkles/>
+
+<h2 className="
+text-2xl
+font-bold
+">
+
+AI Professional Quotes
+
+</h2>
+
+
+</div>
+
+
+
+<p className="
+text-white/80
+mb-6
+">
+
+Describe your project or speak your job details.
+AI builds your estimate.
+
+</p>
+
+
+
+
+<Link
+
+href="/workspace"
+
+className="
+inline-flex
+items-center
+gap-3
+bg-white
+text-black
+px-8
+py-4
+rounded-xl
+font-semibold
+hover:scale-105
+transition
+"
+
+>
+
+<Mic/>
+
+Create Quote
+
+</Link>
+
+
+
+</section>
+
+
+
+
+
+
+{/* STATS */}
+
+<div className="
+grid
+grid-cols-1
+md:grid-cols-3
+gap-6
+mb-8
+">
+
+
+
+
+<div className="
+bg-zinc-900
+border
+border-zinc-800
+rounded-2xl
+p-6
+">
+
+
+<div className="
+flex
+items-center
+gap-3
+text-zinc-400
+">
+
+<FileText size={20}/>
+
+Quotes Created
+
+</div>
+
+
+<p className="
+text-4xl
+font-bold
+mt-4
+">
+
+0
+
+</p>
+
+
+</div>
+
+
+
+
+<div className="
+bg-zinc-900
+border
+border-zinc-800
+rounded-2xl
+p-6
+">
+
+
+<div className="
+flex
+items-center
+gap-3
+text-zinc-400
+">
+
+<TrendingUp size={20}/>
+
+Revenue
+
+</div>
+
+
+<p className="
+text-4xl
+font-bold
+mt-4
+">
+
+$0
+
+</p>
+
+
+</div>
+
+
+
+
+<div className="
+bg-zinc-900
+border
+border-zinc-800
+rounded-2xl
+p-6
+">
+
+
+<div className="
+flex
+items-center
+gap-3
+text-zinc-400
+">
+
+<Clock size={20}/>
+
+Time Saved
+
+</div>
+
+
+<p className="
+text-4xl
+font-bold
+mt-4
+">
+
+0 hrs
+
+</p>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+{/* RECENT QUOTES */}
+
+<section className="
+bg-zinc-900
+border
+border-zinc-800
+rounded-3xl
+p-8
+">
+
+
+<h2 className="
+text-xl
+font-semibold
+mb-6
+">
+
+Recent Quotes
+
+</h2>
+
+
+
+
+<div className="
+text-zinc-500
+text-center
+py-10
+">
+
+No quotes created yet.
+
+Your generated quotes will appear here.
+
+</div>
+
+
+
+</section>
+
+
+
+</div>
+
+
+</main>
+
+
+);
+
+
 }

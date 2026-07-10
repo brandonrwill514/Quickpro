@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 import {
   Mic,
   Sparkles,
@@ -48,6 +49,32 @@ export default function WorkspacePage() {
     setLoading(false);
   }
 
+  async function saveQuote() {
+    try {
+      const { error } = await supabase
+        .from("Quotes")
+        .insert({
+          project_description: description,
+          ai_summary: analysis,
+          trade: "Pending",
+          materials: "Pending",
+          labour: "Pending",
+          estimated_price: 0,
+          profit_margin: 0,
+        });
+
+      if (error) {
+        console.error(error);
+        alert("Quote failed to save");
+        return;
+      }
+
+      alert("Quote saved successfully!");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <main className="min-h-screen bg-zinc-950 text-white p-10">
       <div className="mx-auto max-w-6xl">
@@ -70,6 +97,13 @@ export default function WorkspacePage() {
             className="mt-5 rounded-xl bg-violet-600 px-8 py-3 font-semibold hover:bg-violet-500"
           >
             {loading ? "Analyzing..." : "Analyze Job"}
+          </button>
+
+          <button
+            onClick={saveQuote}
+            className="mt-6 w-full rounded-xl bg-violet-600 py-4 font-semibold hover:bg-violet-500"
+          >
+            Generate Professional Quote
           </button>
 
           <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-950 p-5">
