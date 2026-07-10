@@ -6,8 +6,8 @@ type QuoteCardProps = {
 
 const statusStyles: Record<QuoteCardProps["status"], string> = {
   draft: "bg-gray-100 text-gray-700",
-  sent: "bg-blue-100 text-blue-700",
-  accepted: "bg-green-100 text-green-700",
+  sent: "bg-indigo-100 text-indigo-700",
+  accepted: "bg-green-500 text-white",
 };
 
 export default function QuoteCard({ clientName, amount, status }: QuoteCardProps) {

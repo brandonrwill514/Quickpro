@@ -4,7 +4,7 @@ import FeatureCard from "@/components/FeatureCard";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-slate-50">
       <section className="px-8 py-24 text-center">
         <h1 className="text-6xl font-bold tracking-tight">
           Stop Guessing.
@@ -12,7 +12,7 @@ export default function HomePage() {
           Start Quoting Smarter.
         </h1>
 
-        <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="mt-6 text-xl text-slate-900 max-w-2xl mx-auto">
           QuickQuo uses AI to turn job descriptions into professional estimates for contractors in seconds.
         </p>
 

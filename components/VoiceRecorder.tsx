@@ -59,7 +59,7 @@ export default function VoiceRecorder({ onTranscript, onError }: VoiceRecorderPr
         padding: "10px 14px",
         borderRadius: 8,
         border: "1px solid #ccc",
-        background: isListening ? "#dc2626" : "#2563eb",
+        background: isListening ? "#dc2626" : "#06B6D4",
         color: "white",
         cursor: "pointer",
       }}

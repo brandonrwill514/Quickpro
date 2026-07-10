@@ -11,7 +11,7 @@ import {
 
 export default function Dashboard() {
   return (
-    <div className="flex min-h-screen bg-slate-100">
+    <div className="flex min-h-screen bg-slate-50">
       <Sidebar />
 
       <main className="flex-1">
@@ -97,7 +97,7 @@ gap-6
             </div>
           </div>
 
-          <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-white">
+          <div className="rounded-2xl bg-gradient-to-r from-indigo-500 to-indigo-600 p-8 text-white">
             <h2 className="text-3xl font-bold">AI Quote Assistant</h2>
 
             <p className="mt-3 text-blue-100">
@@ -106,7 +106,7 @@ gap-6
 
             <Link
               href="/quote"
-              className="mt-8 inline-block rounded-xl bg-white px-6 py-3 font-semibold text-blue-700"
+              className="mt-8 inline-block rounded-xl bg-white px-6 py-3 font-semibold text-indigo-700"
             >
               🎤 Start Talking
             </Link>

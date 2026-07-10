@@ -118,7 +118,7 @@ export default function QuoteDetailPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-100 p-8">
+    <main className="min-h-screen bg-slate-50 p-8">
       <div className="mb-6 flex items-center justify-between">
         <Link href="/quote" className="rounded-xl border bg-white px-4 py-2 text-sm">
           Back

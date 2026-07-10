@@ -3,10 +3,14 @@ export default function StatusBadge({
 }: {
   status: string;
 }) {
+  const normalized = status.toLowerCase();
+
   const colors: any = {
-    Draft: "bg-gray-200",
-    Sent: "bg-blue-100",
-    Declined: "bg-red-100",
+    draft: "bg-gray-200",
+    sent: "bg-blue-100",
+    declined: "bg-red-100",
+    accepted: "bg-green-500 text-white",
+    completed: "bg-green-500 text-white",
   };
 
   return (
@@ -15,7 +19,7 @@ export default function StatusBadge({
 px-4
 py-2
 rounded-full
-${colors[status]}
+${colors[normalized] ?? colors.draft}
 `}
     >
       {status}

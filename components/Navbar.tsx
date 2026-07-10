@@ -9,7 +9,7 @@ export default function Navbar() {
         <p className="text-gray-500">Let's build some quotes.</p>
       </div>
 
-      <button className="rounded-xl bg-blue-600 px-6 py-3 text-white hover:bg-blue-700">
+      <button className="rounded-xl bg-indigo-500 px-6 py-3 text-white hover:bg-indigo-600">
         New Quote
       </button>
     </header>

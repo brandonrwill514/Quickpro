@@ -97,7 +97,7 @@ border
 p-5
 resize-none
 focus:ring-2
-focus:ring-blue-500
+focus:ring-indigo-500
 "
         />
 
@@ -105,7 +105,7 @@ focus:ring-blue-500
           onClick={analyzeJob}
           className="
 mt-6
-bg-blue-600
+      bg-cyan-500
 text-white
 rounded-xl
 px-6
@@ -114,7 +114,7 @@ font-semibold
 flex
 items-center
 gap-2
-hover:bg-blue-700
+      hover:bg-cyan-600
 "
         >
           <Sparkles size={18} />
@@ -129,11 +129,12 @@ hover:bg-blue-700
           className="
 mt-6
 rounded-xl
-bg-green-600
+bg-cyan-500
 text-white
 px-6
 py-3
 font-semibold
+hover:bg-cyan-600
 "
         >
           Generate Quote
@@ -151,7 +152,7 @@ font-semibold
 
         {
           summary ? (
-            <div className="whitespace-pre-line text-gray-700">
+            <div className="whitespace-pre-line rounded-xl bg-cyan-50 p-4 text-gray-700">
               {summary}
             </div>
           )

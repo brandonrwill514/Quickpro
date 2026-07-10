@@ -13,7 +13,7 @@ export default function PricingSettings() {
       <h2 className="mb-6 text-2xl font-bold">Pricing Settings</h2>
 
       <label className="mb-4 block">
-        <p className="mb-2 text-sm font-semibold text-gray-600">Default Hourly Rate</p>
+        <p className="mb-2 text-sm font-semibold text-slate-900">Default Hourly Rate</p>
         <input
           type="number"
           value={hourlyRate}
@@ -24,7 +24,7 @@ export default function PricingSettings() {
       </label>
 
       <label className="mb-4 block">
-        <p className="mb-2 text-sm font-semibold text-gray-600">Material Markup</p>
+        <p className="mb-2 text-sm font-semibold text-slate-900">Material Markup</p>
         <input
           type="number"
           step="1"
@@ -37,7 +37,7 @@ export default function PricingSettings() {
       </label>
 
       <label className="mb-4 block">
-        <p className="mb-2 text-sm font-semibold text-gray-600">Target Profit Margin</p>
+        <p className="mb-2 text-sm font-semibold text-slate-900">Target Profit Margin</p>
         <input
           type="number"
           step="1"
@@ -50,7 +50,7 @@ export default function PricingSettings() {
       </label>
 
       <label className="block">
-        <p className="mb-2 text-sm font-semibold text-gray-600">Region</p>
+        <p className="mb-2 text-sm font-semibold text-slate-900">Region</p>
         <input
           value={region}
           onChange={(e) => setRegion(e.target.value)}

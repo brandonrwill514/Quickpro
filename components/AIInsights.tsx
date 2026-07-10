@@ -7,8 +7,8 @@ export default function AIInsights() {
     <div className="
 rounded-2xl
 bg-gradient-to-r
-from-blue-600
-to-indigo-600
+  from-cyan-500
+  to-cyan-600
 text-white
 p-8
 ">
@@ -29,7 +29,7 @@ font-bold
 
       <p className="
 mt-5
-text-blue-100
+    text-cyan-100
 text-lg
 ">
         Your quotes are performing well.

@@ -104,8 +104,8 @@ font-bold
         </section>
 
         <section className="
-rounded-xl
-bg-blue-50
+        rounded-xl
+        bg-cyan-50
 p-5
 ">
           <h4 className="
@@ -133,11 +133,11 @@ mt-2
 mt-8
 w-full
 rounded-xl
-bg-blue-600
+bg-indigo-500
 text-white
 py-4
 font-semibold
-hover:bg-blue-700
+hover:bg-indigo-600
 "
       >
         Send Follow-Up

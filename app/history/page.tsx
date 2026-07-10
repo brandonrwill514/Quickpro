@@ -80,7 +80,7 @@ export default function HistoryPage() {
 
         {quotes.filter((q) => q.job.toLowerCase().includes(search.toLowerCase())).length === 0 ? (
           <div className="rounded-xl border border-dashed bg-white p-6">
-            <p className="text-sm text-gray-700">No quotes yet, generate your first one.</p>
+            <p className="text-sm text-slate-900">No quotes yet, generate your first one.</p>
             <Link
               href="/quote"
               className="mt-3 inline-block rounded-lg bg-black px-4 py-2 text-sm font-semibold text-white"
@@ -96,7 +96,7 @@ export default function HistoryPage() {
                 <Link href={`/history/${q.id}`} className="block">
                   <QuoteCard clientName={q.job} amount={(q.quote || "Draft quote").slice(0, 80)} status="draft" />
                 </Link>
-                <div className="grid gap-1 text-sm text-gray-700 sm:grid-cols-3">
+                <div className="grid gap-1 text-sm text-slate-900 sm:grid-cols-3">
                   <p>Budget: {q.budget ?? "n/a"}</p>
                   <p>Urgency: {q.urgency ?? "n/a"}</p>
                   <p>Client: {q.client_type ?? "n/a"}</p>

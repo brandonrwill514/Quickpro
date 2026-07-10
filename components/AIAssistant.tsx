@@ -17,7 +17,7 @@ export default function AIAssistant() {
       />
 
       <button
-        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
+        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-indigo-500 px-4 py-2 font-semibold text-white hover:bg-indigo-600"
       >
         <Send size={16} />
         Send
