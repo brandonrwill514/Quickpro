@@ -10,322 +10,323 @@ import {
 } from "lucide-react";
 
 
-export default function DashboardPage(){
+export default function DashboardPage() {
 
 
-return (
+  return (
 
-<main className="
-min-h-screen
-bg-zinc-950
-text-white
-p-8
-">
+    <main className="
+      min-h-screen
+      bg-zinc-950
+      text-white
+      p-8
+    ">
 
 
-<div className="
-max-w-7xl
-mx-auto
-">
+      <div className="
+        max-w-7xl
+        mx-auto
+      ">
 
 
-{/* HEADER */}
+        {/* HEADER */}
 
-<div className="mb-10">
+        <div className="mb-10">
 
-<h1 className="
-text-4xl
-font-bold
-">
+          <h1 className="
+            text-4xl
+            font-bold
+          ">
+            Welcome back
+          </h1>
 
-Welcome back Brandon 🚀
 
-</h1>
+          <p className="
+            text-zinc-400
+            mt-3
+            text-lg
+          ">
+            Create professional quotes faster with AI.
+          </p>
 
+        </div>
 
-<p className="
-text-zinc-400
-mt-3
-text-lg
-">
 
-Create professional quotes faster with AI.
 
-</p>
 
-</div>
 
+        {/* MAIN AI QUOTE CARD */}
 
+        <section className="
+          bg-gradient-to-br
+          from-violet-600
+          to-teal-500
+          rounded-3xl
+          p-8
+          mb-8
+        ">
 
 
-{/* QUICK ACTION */}
+          <div className="
+            flex
+            items-center
+            gap-3
+            mb-4
+          ">
 
-<section className="
-bg-gradient-to-br
-from-violet-600
-to-teal-500
-rounded-3xl
-p-8
-mb-8
-">
+            <Sparkles size={28}/>
 
 
-<div className="
-flex
-items-center
-gap-3
-mb-4
-">
+            <h2 className="
+              text-2xl
+              font-bold
+            ">
+              AI Professional Quotes
+            </h2>
 
-<Sparkles/>
 
-<h2 className="
-text-2xl
-font-bold
-">
+          </div>
 
-AI Professional Quotes
 
-</h2>
 
 
-</div>
+          <p className="
+            text-white/80
+            text-lg
+            mb-6
+          ">
+            Describe your project or use voice AI.
+            QuickQuo creates a professional estimate.
+          </p>
 
 
 
-<p className="
-text-white/80
-mb-6
-">
 
-Describe your project or speak your job details.
-AI builds your estimate.
+          <Link
 
-</p>
+            href="/workspace"
 
+            className="
+              inline-flex
+              items-center
+              gap-3
+              bg-white
+              text-black
+              px-8
+              py-4
+              rounded-xl
+              font-semibold
+              hover:scale-105
+              transition
+            "
 
+          >
 
+            <Mic size={20}/>
 
-<Link
+            Create New Quote
 
-href="/workspace"
 
-className="
-inline-flex
-items-center
-gap-3
-bg-white
-text-black
-px-8
-py-4
-rounded-xl
-font-semibold
-hover:scale-105
-transition
-"
+          </Link>
 
->
 
-<Mic/>
 
-Create Quote
+        </section>
 
-</Link>
 
 
 
-</section>
 
 
+        {/* STATS */}
 
 
+        <div className="
+          grid
+          grid-cols-1
+          md:grid-cols-3
+          gap-6
+          mb-8
+        ">
 
 
-{/* STATS */}
 
-<div className="
-grid
-grid-cols-1
-md:grid-cols-3
-gap-6
-mb-8
-">
 
+          <div className="
+            bg-zinc-900
+            border
+            border-zinc-800
+            rounded-2xl
+            p-6
+          ">
 
+            <div className="
+              flex
+              items-center
+              gap-3
+              text-zinc-400
+            ">
 
+              <FileText size={20}/>
 
-<div className="
-bg-zinc-900
-border
-border-zinc-800
-rounded-2xl
-p-6
-">
+              Quotes Created
 
+            </div>
 
-<div className="
-flex
-items-center
-gap-3
-text-zinc-400
-">
 
-<FileText size={20}/>
 
-Quotes Created
+            <p className="
+              text-4xl
+              font-bold
+              mt-4
+            ">
+              0
+            </p>
 
-</div>
 
+          </div>
 
-<p className="
-text-4xl
-font-bold
-mt-4
-">
 
-0
 
-</p>
 
 
-</div>
 
+          <div className="
+            bg-zinc-900
+            border
+            border-zinc-800
+            rounded-2xl
+            p-6
+          ">
 
 
+            <div className="
+              flex
+              items-center
+              gap-3
+              text-zinc-400
+            ">
 
-<div className="
-bg-zinc-900
-border
-border-zinc-800
-rounded-2xl
-p-6
-">
+              <TrendingUp size={20}/>
 
+              Revenue
 
-<div className="
-flex
-items-center
-gap-3
-text-zinc-400
-">
+            </div>
 
-<TrendingUp size={20}/>
 
-Revenue
 
-</div>
 
+            <p className="
+              text-4xl
+              font-bold
+              mt-4
+            ">
+              $0
+            </p>
 
-<p className="
-text-4xl
-font-bold
-mt-4
-">
 
-$0
+          </div>
 
-</p>
 
 
-</div>
 
 
 
+          <div className="
+            bg-zinc-900
+            border
+            border-zinc-800
+            rounded-2xl
+            p-6
+          ">
 
-<div className="
-bg-zinc-900
-border
-border-zinc-800
-rounded-2xl
-p-6
-">
 
+            <div className="
+              flex
+              items-center
+              gap-3
+              text-zinc-400
+            ">
 
-<div className="
-flex
-items-center
-gap-3
-text-zinc-400
-">
+              <Clock size={20}/>
 
-<Clock size={20}/>
+              Time Saved
 
-Time Saved
+            </div>
 
-</div>
 
 
-<p className="
-text-4xl
-font-bold
-mt-4
-">
 
-0 hrs
+            <p className="
+              text-4xl
+              font-bold
+              mt-4
+            ">
+              0 hrs
+            </p>
 
-</p>
 
+          </div>
 
-</div>
 
 
+        </div>
 
 
-</div>
 
 
 
 
+        {/* RECENT QUOTES */}
 
-{/* RECENT QUOTES */}
 
-<section className="
-bg-zinc-900
-border
-border-zinc-800
-rounded-3xl
-p-8
-">
+        <section className="
+          bg-zinc-900
+          border
+          border-zinc-800
+          rounded-3xl
+          p-8
+        ">
 
 
-<h2 className="
-text-xl
-font-semibold
-mb-6
-">
+          <h2 className="
+            text-xl
+            font-semibold
+            mb-6
+          ">
+            Recent Quotes
+          </h2>
 
-Recent Quotes
 
-</h2>
 
 
+          <div className="
+            text-center
+            py-12
+            text-zinc-500
+          ">
 
+            No quotes created yet.
 
-<div className="
-text-zinc-500
-text-center
-py-10
-">
+            <br/>
 
-No quotes created yet.
+            Your AI generated quotes will appear here.
 
-Your generated quotes will appear here.
+          </div>
 
-</div>
 
 
+        </section>
 
-</section>
 
 
 
-</div>
 
+      </div>
 
-</main>
 
+    </main>
 
-);
-
+  );
 
 }
