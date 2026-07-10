@@ -6,7 +6,6 @@ import {
   LayoutDashboard,
   FileText,
   Mic,
-  BarChart3,
   Settings,
 } from "lucide-react";
 
@@ -27,11 +26,6 @@ const items = [
     icon: FileText,
   },
   {
-    title: "Business Insights",
-    href: "/dashboard#analytics",
-    icon: BarChart3,
-  },
-  {
     title: "Settings",
     href: "/settings",
     icon: Settings,
@@ -50,7 +44,7 @@ export default function Sidebar() {
       <nav className="space-y-3">
         {items.map((item) => {
           const Icon = item.icon;
-          const isActive = item.title !== "Business Insights" && pathname === item.href;
+          const isActive = pathname === item.href;
 
           return (
             <Link
