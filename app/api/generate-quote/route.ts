@@ -1,12 +1,25 @@
 import OpenAI from "openai";
 import { supabase } from "@/lib/supabase";
 
-const openai = new OpenAI({
-  apiKey:
-    process.env.OPENAI_API_KEY,
-});
+const openai = process.env.OPENAI_API_KEY
+  ? new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    })
+  : null;
 
 export async function POST(req: Request) {
+  if (!openai) {
+    return Response.json(
+      {
+        error:
+          "AI features are currently unavailable. Add OpenAI API credentials."
+      },
+      {
+        status:503
+      }
+    );
+  }
+
   const {
     summary,
   } = await req.json();
