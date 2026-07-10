@@ -14,9 +14,29 @@ export async function POST(req: Request) {
 
     if (!description) {
 
+function getOpenAIClient() {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    return null;
+  }
+  return new OpenAI({
+    apiKey,
+  });
+}
       return Response.json(
         {
           error: "No job description provided"
+    const openai = getOpenAIClient();
+    if (!openai) {
+      return Response.json(
+        {
+          error: "AI is currently unavailable. OpenAI API key is not configured."
+        },
+        {
+          status: 503
+        }
+      );
+    }
         },
         {
           status:400
