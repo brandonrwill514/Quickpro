@@ -1,10 +1,8 @@
 "use client";
 
 import { UserPlus } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 export default function SignupPage(){
-	const router = useRouter();
 
 return (
 
@@ -85,10 +83,6 @@ p-4
 />
 
 <button
-onClick={() => {
-localStorage.removeItem("quickquoProfileComplete");
-router.push("/profile-setup");
-}}
 
 className="
 w-full
