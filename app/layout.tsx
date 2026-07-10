@@ -5,7 +5,8 @@ import {
   Sparkles,
   History,
   Settings,
-  Home
+  Home,
+  UserPlus
 } from "lucide-react";
 
 export const metadata = {
@@ -30,6 +31,8 @@ export default function RootLayout({
 
           <aside className="
             w-72
+            flex
+            flex-col
             bg-zinc-900
             border-r
             border-zinc-800
@@ -132,6 +135,38 @@ export default function RootLayout({
               </Link>
 
             </nav>
+
+            <div className="
+              mt-auto
+              pt-8
+              border-t
+              border-zinc-800
+            ">
+
+            <Link
+            href="/signup"
+            className="
+            flex
+            items-center
+            gap-3
+            p-3
+            rounded-xl
+            bg-gradient-to-r
+            from-violet-600
+            to-teal-500
+            font-semibold
+            hover:scale-105
+            transition
+            "
+            >
+
+            <UserPlus size={20}/>
+
+            Create Account
+
+            </Link>
+
+            </div>
 
           </aside>
 
