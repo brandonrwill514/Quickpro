@@ -158,6 +158,20 @@ export default function RootLayout({
                 Settings
               </Link>
 
+              <Link
+              href="/profile-setup"
+              className="
+              flex
+              items-center
+              gap-3
+              p-3
+              rounded-xl
+              hover:bg-zinc-800
+              "
+              >
+              Build Profile
+              </Link>
+
             </nav>
 
             <div className="
