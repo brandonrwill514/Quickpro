@@ -3,114 +3,75 @@
 import { useState } from "react";
 import { Mic, Sparkles, FileText, Upload, Send } from "lucide-react";
 
-export default function WorkspacePage() {
-
-  const [description, setDescription] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [analysis, setAnalysis] = useState("");
-
-  async function analyzeJob() {
-
-    setLoading(true);
-
-    try {
-
-      const response = await fetch("/api/extract-job", {
-        method: "POST",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        body: JSON.stringify({
-          description
-        })
-      });
-
-      const data = await response.json();
-
-      if(data.summary){
-
-        setAnalysis(data.summary);
-
-      } else {
-
-        setAnalysis(
-          "AI analysis unavailable. Add OpenAI billing to activate."
-        );
-
-      }
-
-    } catch(error){
-
-      setAnalysis(
-        "Unable to analyze project."
-      );
-
-    }
-
-    setLoading(false);
-
-  }
-
-return (
-
-<main className="
-min-h-screen
-bg-zinc-950
-text-white
-p-8
-">
-
-<div className="
-max-w-7xl
-mx-auto
-">
-
-{/* HEADER */}
-
-<div className="mb-10">
-
-<h1 className="
-text-4xl
-font-bold
-tracking-tight
-">
-
-AI Professional Quotes
-
-</h1>
-
-<p className="
-text-zinc-400
-mt-3
-text-lg
-">
-
-Create accurate contractor estimates
-using AI.
-
-</p>
-
-</div>
-
 "use client";
 
 import { useState } from "react";
-import { Mic, Sparkles, FileText, Upload, Send } from "lucide-react";
-
 
 export default function WorkspacePage() {
 
   const [description, setDescription] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [analysis, setAnalysis] = useState("");
+
+  return (
+    <main className="min-h-screen bg-zinc-950 text-white p-10">
+
+      <div className="max-w-6xl mx-auto">
+
+        <h1 className="text-4xl font-bold">
+          AI Professional Quotes
+        </h1>
+
+        <p className="text-zinc-400 mt-3">
+          Create professional contractor quotes using AI.
+        </p>
 
 
-  async function analyzeJob() {
+        <div className="
+          mt-10
+          bg-zinc-900
+          border
+          border-zinc-800
+          rounded-3xl
+          p-8
+        ">
 
-    setLoading(true);
 
-    try {
+          <textarea
+            value={description}
+            onChange={(e)=>setDescription(e.target.value)}
+            placeholder="Describe the job..."
+            className="
+              w-full
+              h-48
+              bg-zinc-950
+              border
+              border-zinc-700
+              rounded-xl
+              p-5
+            "
+          />
 
+
+          <button
+            className="
+            mt-5
+            bg-violet-600
+            px-6
+            py-3
+            rounded-xl
+            "
+          >
+            Analyze Job
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+    </main>
+  );
+}
       const response = await fetch("/api/extract-job", {
         method: "POST",
         headers:{
