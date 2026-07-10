@@ -4,7 +4,8 @@ import {
   LayoutDashboard,
   Sparkles,
   History,
-  Settings
+  Settings,
+  Home
 } from "lucide-react";
 
 export const metadata = {
@@ -49,6 +50,22 @@ export default function RootLayout({
             </h1>
 
             <nav className="space-y-3">
+
+              <Link
+                href="/"
+                className="
+                  flex
+                  items-center
+                  gap-3
+                  p-3
+                  rounded-xl
+                  hover:bg-zinc-800
+                  transition
+                "
+              >
+                <Home size={20}/>
+                Return Home
+              </Link>
 
               <Link
                 href="/dashboard"
