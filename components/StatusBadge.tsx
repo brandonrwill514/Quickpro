@@ -6,9 +6,9 @@ export default function StatusBadge({
   const normalized = status.toLowerCase();
 
   const colors: any = {
-    draft: "bg-gray-200",
-    sent: "bg-blue-100",
-    declined: "bg-red-100",
+    draft: "bg-zinc-800 text-zinc-300",
+    sent: "bg-violet-600/20 text-violet-400",
+    declined: "bg-red-500/20 text-red-300",
     accepted: "bg-green-500 text-white",
     completed: "bg-green-500 text-white",
   };

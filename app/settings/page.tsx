@@ -2,10 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import DashboardCard from "@/components/DashboardCard";
-import Header from "@/components/Header";
 import LoadingSpinner from "@/components/LoadingSpinner";
-import Sidebar from "@/components/Sidebar";
 import { supabase } from "@/lib/supabase";
+import PageLayout from "@/components/PageLayout";
+import PageHeader from "@/components/PageHeader";
 
 type SettingsQuoteRow = {
   budget?: string | null;
@@ -70,10 +70,9 @@ export default function SettingsPage() {
   const commonUrgency = useMemo(() => mostCommon(rows.map((row) => row.urgency)), [rows]);
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl gap-6 p-6">
-      <Sidebar />
+    <PageLayout>
+      <PageHeader title="Settings" subtitle="Manage profile, defaults, and integrations" />
       <section className="w-full space-y-4">
-        <Header title="Settings" subtitle="Manage profile, defaults, and integrations" />
         {loading ? (
           <LoadingSpinner />
         ) : (
@@ -96,6 +95,6 @@ export default function SettingsPage() {
           </div>
         )}
       </section>
-    </main>
+    </PageLayout>
   );
 }

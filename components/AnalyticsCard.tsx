@@ -11,13 +11,15 @@ export default function AnalyticsCard({
 }: Props) {
   return (
     <div className="
-bg-white
 rounded-2xl
 border
+border-zinc-800
+bg-zinc-900
 p-6
-shadow-sm
+shadow-xl
+shadow-black/20
 ">
-      <p className="text-gray-500">
+      <p className="text-sm text-zinc-400">
         {title}
       </p>
 
@@ -25,13 +27,14 @@ shadow-sm
 text-4xl
 font-bold
 mt-3
+text-white
 ">
         {value}
       </h2>
 
       <p className="
 text-sm
-text-gray-500
+text-zinc-400
 mt-2
 ">
         {description}

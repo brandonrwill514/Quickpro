@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import Header from "@/components/Header";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import QuoteCard from "@/components/QuoteCard";
-import Sidebar from "@/components/Sidebar";
+import PageLayout from "@/components/PageLayout";
+import PageHeader from "@/components/PageHeader";
 
 type Quote = {
   id: string;
@@ -55,35 +55,34 @@ export default function HistoryPage() {
 
   if (loading) {
     return (
-      <main className="mx-auto flex w-full max-w-6xl gap-6 p-6">
-        <Sidebar />
+      <PageLayout>
+        <PageHeader title="Recent Quotes" subtitle="Track your generated and delivered quotes" />
         <section className="w-full">
-          <Header title="Quote History" subtitle="Track your generated and delivered quotes" />
           <LoadingSpinner />
         </section>
-      </main>
+      </PageLayout>
     );
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl gap-6 p-6">
-      <Sidebar />
+    <PageLayout>
+      <PageHeader title="Recent Quotes" subtitle="Search and manage all generated quotes" />
+
       <section className="w-full space-y-4">
-        <Header title="Quote History" subtitle="Search and manage all generated quotes" />
 
         <input
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           placeholder="Search by job"
-          className="w-full rounded-lg border bg-white px-3 py-2"
+          className="w-full rounded-lg border border-zinc-800 bg-zinc-900 px-3 py-2 text-white placeholder:text-zinc-500"
         />
 
         {quotes.filter((q) => q.job.toLowerCase().includes(search.toLowerCase())).length === 0 ? (
-          <div className="rounded-xl border border-dashed bg-white p-6">
-            <p className="text-sm text-slate-900">No quotes yet, generate your first one.</p>
+          <div className="rounded-2xl border border-dashed border-zinc-800 bg-zinc-900 p-6">
+            <p className="text-sm text-zinc-300">No quotes yet, generate your first one.</p>
             <Link
               href="/quote"
-              className="mt-3 inline-block rounded-lg bg-black px-4 py-2 text-sm font-semibold text-white"
+              className="mt-3 inline-block rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:bg-violet-500"
             >
               Generate Quote
             </Link>
@@ -92,11 +91,11 @@ export default function HistoryPage() {
           quotes
             .filter((q) => q.job.toLowerCase().includes(search.toLowerCase()))
             .map((q) => (
-              <div key={q.id} className="space-y-3 rounded-xl border bg-white p-4 shadow-sm">
+              <div key={q.id} className="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-900 p-4 shadow-xl shadow-black/20">
                 <Link href={`/history/${q.id}`} className="block">
                   <QuoteCard clientName={q.job} amount={(q.quote || "Draft quote").slice(0, 80)} status="draft" />
                 </Link>
-                <div className="grid gap-1 text-sm text-slate-900 sm:grid-cols-3">
+                <div className="grid gap-1 text-sm text-zinc-300 sm:grid-cols-3">
                   <p>Budget: {q.budget ?? "n/a"}</p>
                   <p>Urgency: {q.urgency ?? "n/a"}</p>
                   <p>Client: {q.client_type ?? "n/a"}</p>
@@ -104,7 +103,7 @@ export default function HistoryPage() {
                 <button
                   type="button"
                   onClick={() => void deleteQuote(q.id)}
-                  className="rounded-lg border border-red-200 px-3 py-1.5 text-sm font-medium text-red-700 hover:bg-red-50"
+                  className="rounded-lg border border-red-500/30 px-3 py-1.5 text-sm font-medium text-red-300 hover:bg-red-500/10"
                 >
                   Delete
                 </button>
@@ -112,6 +111,6 @@ export default function HistoryPage() {
             ))
         )}
       </section>
-    </main>
+    </PageLayout>
   );
 }

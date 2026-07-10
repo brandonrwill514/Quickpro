@@ -1,13 +1,16 @@
 import QuoteWorkspace from "@/components/QuoteWorkspace";
+import PageLayout from "@/components/PageLayout";
+import PageHeader from "@/components/PageHeader";
 
 export default function QuotePage() {
   return (
-    <div className="min-h-screen bg-slate-50 p-8">
-      <h1 className="mb-8 text-4xl font-bold">
-        Generate AI Quote
-      </h1>
+    <PageLayout>
+      <PageHeader
+        title="Create Quote"
+        subtitle="Describe the job, let AI analyse it, then generate a professional estimate."
+      />
 
       <QuoteWorkspace />
-    </div>
+    </PageLayout>
   );
 }

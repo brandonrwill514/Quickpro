@@ -6,6 +6,8 @@ import { useParams } from "next/navigation";
 import QuotePreview from "@/components/QuotePreview";
 import StatusBadge from "@/components/StatusBadge";
 import { supabase } from "@/lib/supabase";
+import PageLayout from "@/components/PageLayout";
+import PageHeader from "@/components/PageHeader";
 
 type RawQuote = {
   id?: string;
@@ -103,30 +105,39 @@ export default function QuoteDetailPage() {
   const normalized = normalize(quote);
 
   if (loading) {
-    return <main className="p-8">Loading quote...</main>;
+    return <PageLayout><PageHeader title="Loading Quote" /><p className="text-zinc-400">Loading quote...</p></PageLayout>;
   }
 
   if (error || !normalized) {
     return (
-      <main className="space-y-4 p-8">
-        <p className="text-red-600">{error || "Quote not available."}</p>
-        <Link href="/quote" className="inline-block rounded-xl border px-4 py-2">
+      <PageLayout>
+        <PageHeader title="Quote Not Available" subtitle="The requested quote could not be loaded." />
+        <div className="space-y-4">
+        <p className="text-red-300">{error || "Quote not available."}</p>
+        <Link href="/quote" className="inline-block rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 text-white">
           Back to Quote Workspace
         </Link>
-      </main>
+        </div>
+      </PageLayout>
     );
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 p-8">
+    <PageLayout>
+      <PageHeader
+        title="Quote Details"
+        subtitle="Review the generated quote, status, and follow-up actions."
+        action={<Link href="/quote" className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white">Back</Link>}
+      />
+
       <div className="mb-6 flex items-center justify-between">
-        <Link href="/quote" className="rounded-xl border bg-white px-4 py-2 text-sm">
+        <Link href="/quote" className="rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-white">
           Back
         </Link>
         <StatusBadge status={normalized.status} />
       </div>
 
       <QuotePreview quote={normalized} />
-    </main>
+    </PageLayout>
   );
 }
