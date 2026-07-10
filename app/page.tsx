@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
 export default function HomePage() {
@@ -24,15 +23,6 @@ export default function HomePage() {
             <br />
             AI builds your estimate.
           </p>
-
-          <div className="mt-10 flex justify-center">
-            <Link
-              href="/dashboard"
-              className="rounded-xl bg-gradient-to-r from-violet-600 to-teal-500 px-8 py-4 font-semibold"
-            >
-              Enter QuickQuo
-            </Link>
-          </div>
 
           <div className="mt-14 flex justify-center">
             <div className="w-full max-w-5xl rounded-3xl border border-white/10 bg-zinc-900 p-3 shadow-2xl shadow-black/40">

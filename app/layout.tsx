@@ -6,7 +6,8 @@ import {
   History,
   Settings,
   Home,
-  UserPlus
+  UserPlus,
+  LogIn
 } from "lucide-react";
 
 export const metadata = {
@@ -53,6 +54,29 @@ export default function RootLayout({
             </h1>
 
             <nav className="space-y-3">
+
+              <Link
+              href="/dashboard"
+              className="
+              flex
+              items-center
+              gap-3
+              p-3
+              rounded-xl
+              bg-gradient-to-r
+              from-violet-600
+              to-teal-500
+              font-semibold
+              hover:scale-105
+              transition
+              "
+              >
+
+              <LogIn size={20}/>
+
+              Enter QuickQuo
+
+              </Link>
 
               <Link
                 href="/"
