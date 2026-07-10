@@ -1,21 +1,88 @@
-import { NextResponse } from "next/server";
+import OpenAI from "openai";
 
-export async function POST(request: Request) {
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+export async function POST(req: Request) {
+
   try {
-    const body = await request.json();
-    const text = typeof body?.text === "string" ? body.text : "";
 
-    if (!text.trim()) {
-      return NextResponse.json({ ok: false, error: "No text provided" }, { status: 400 });
+    const body = await req.json();
+
+    const description = body.description;
+
+    if (!description) {
+
+      return Response.json(
+        {
+          error: "No job description provided"
+        },
+        {
+          status:400
+        }
+      );
+
     }
 
-    const summary = text
-      .replace(/\s+/g, " ")
-      .trim()
-      .slice(0, 180);
+    const response =
+      await openai.chat.completions.create({
 
-    return NextResponse.json({ ok: true, summary });
-  } catch {
-    return NextResponse.json({ ok: false, error: "Failed to extract job" }, { status: 500 });
+        model:"gpt-4o-mini",
+
+        messages:[
+
+          {
+            role:"system",
+            content:`
+            You are an expert contractor estimator.
+
+            Analyze the job description.
+
+            Return:
+
+            Trade:
+            Project:
+            Scope:
+            Materials:
+            Labour Estimate:
+            Questions Needed:
+            `
+          },
+
+          {
+            role:"user",
+            content:description
+          }
+
+        ]
+
+      });
+
+    const summary =
+      response.choices[0].message.content;
+
+    return Response.json({
+
+      summary
+
+    });
+
+  } catch(error:any){
+
+    console.error(error);
+
+    return Response.json(
+
+      {
+        error:error.message || "Server error"
+      },
+
+      {
+        status:500
+      }
+
+    );
+
   }
 }

@@ -60,17 +60,9 @@ export default function VoiceInput({ onTranscript }: VoiceInputProps) {
     <button
       type="button"
       onClick={startListening}
-      style={{
-        padding: "10px 16px",
-        borderRadius: 8,
-        cursor: "pointer",
-        border: "none",
-        background: listening ? "#dc2626" : "#2563eb",
-        color: "white",
-        fontWeight: 600,
-      }}
+      className="mt-6 rounded-xl bg-black px-6 py-3 font-semibold text-white transition hover:bg-gray-800"
     >
-      {listening ? "🎙 Listening..." : "🎤 Speak Job Details"}
+      {listening ? "🎙 Listening..." : "🎤 Start Talking"}
     </button>
   );
 }

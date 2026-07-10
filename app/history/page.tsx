@@ -3,6 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
+import Header from "@/components/Header";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import QuoteCard from "@/components/QuoteCard";
+import Sidebar from "@/components/Sidebar";
 
 type Quote = {
   id: string;
@@ -50,58 +54,64 @@ export default function HistoryPage() {
   }, []);
 
   if (loading) {
-    return <div style={{ padding: 20 }}>Loading history...</div>;
+    return (
+      <main className="mx-auto flex w-full max-w-6xl gap-6 p-6">
+        <Sidebar />
+        <section className="w-full">
+          <Header title="Quote History" subtitle="Track your generated and delivered quotes" />
+          <LoadingSpinner />
+        </section>
+      </main>
+    );
   }
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>Quote History</h1>
+    <main className="mx-auto flex w-full max-w-6xl gap-6 p-6">
+      <Sidebar />
+      <section className="w-full space-y-4">
+        <Header title="Quote History" subtitle="Search and manage all generated quotes" />
 
-      <input
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-        placeholder="Search by job"
-        style={{ display: "block", width: "100%", marginBottom: 12 }}
-      />
+        <input
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+          placeholder="Search by job"
+          className="w-full rounded-lg border bg-white px-3 py-2"
+        />
 
-      {quotes.filter((q) => q.job.toLowerCase().includes(search)).length === 0 ? (
-        <div style={{ padding: 20, border: "1px dashed #ccc", borderRadius: 8 }}>
-          <p>No quotes yet — generate your first one</p>
-          <Link href="/quote">
-            <button type="button">Generate Quote</button>
-          </Link>
-        </div>
-      ) : (
-        quotes
-          .filter((q) => q.job.toLowerCase().includes(search))
-          .map((q) => (
-          <div
-            key={q.id}
-            style={{
-              border: "1px solid #ddd",
-              padding: 15,
-              marginBottom: 10,
-              borderRadius: 8,
-            }}
-          >
-            <Link href={`/history/${q.id}`}>
-              <div style={{ cursor: "pointer" }}>
-                <h3>{q.job}</h3>
-                <p>{q.quote}</p>
-              </div>
+        {quotes.filter((q) => q.job.toLowerCase().includes(search.toLowerCase())).length === 0 ? (
+          <div className="rounded-xl border border-dashed bg-white p-6">
+            <p className="text-sm text-gray-700">No quotes yet, generate your first one.</p>
+            <Link
+              href="/quote"
+              className="mt-3 inline-block rounded-lg bg-black px-4 py-2 text-sm font-semibold text-white"
+            >
+              Generate Quote
             </Link>
-            <p>
-              <strong>Quote:</strong> {q.quote}
-            </p>
-            <p>Budget: {q.budget ?? "n/a"}</p>
-            <p>Urgency: {q.urgency ?? "n/a"}</p>
-            <p>Client: {q.client_type ?? "n/a"}</p>
-            <button type="button" onClick={() => void deleteQuote(q.id)}>
-              Delete
-            </button>
           </div>
-          ))
-      )}
-    </div>
+        ) : (
+          quotes
+            .filter((q) => q.job.toLowerCase().includes(search.toLowerCase()))
+            .map((q) => (
+              <div key={q.id} className="space-y-3 rounded-xl border bg-white p-4 shadow-sm">
+                <Link href={`/history/${q.id}`} className="block">
+                  <QuoteCard clientName={q.job} amount={(q.quote || "Draft quote").slice(0, 80)} status="draft" />
+                </Link>
+                <div className="grid gap-1 text-sm text-gray-700 sm:grid-cols-3">
+                  <p>Budget: {q.budget ?? "n/a"}</p>
+                  <p>Urgency: {q.urgency ?? "n/a"}</p>
+                  <p>Client: {q.client_type ?? "n/a"}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => void deleteQuote(q.id)}
+                  className="rounded-lg border border-red-200 px-3 py-1.5 text-sm font-medium text-red-700 hover:bg-red-50"
+                >
+                  Delete
+                </button>
+              </div>
+            ))
+        )}
+      </section>
+    </main>
   );
 }

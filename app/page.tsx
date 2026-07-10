@@ -1,5 +1,6 @@
 import { Mic, FileText, Zap } from "lucide-react";
 import Link from "next/link";
+import FeatureCard from "@/components/FeatureCard";
 
 export default function HomePage() {
   return (
@@ -26,59 +27,34 @@ export default function HomePage() {
       </section>
 
       <section className="grid md:grid-cols-3 gap-8 px-8 py-20">
-        <Feature
-          icon={<Mic />}
-          title="Voice AI"
-          text="Describe the job naturally and let AI structure the estimate."
-          link="/quote"
-        />
-        <Feature
-          icon={<FileText />}
-          title="Professional Quotes"
-          text="Generate clear client-ready proposals instantly."
-          link="/quote"
-        />
-        <Feature
-          icon={<Zap />}
-          title="Save Hours"
-          text="Spend less time estimating and more time working."
-          link="/dashboard"
-        />
+        <Link href="/quote">
+          <div className="mb-3 text-black">
+            <Mic />
+          </div>
+          <FeatureCard
+            title="Voice AI"
+            description="Describe the job naturally and let AI structure the estimate."
+          />
+        </Link>
+        <Link href="/quote">
+          <div className="mb-3 text-black">
+            <FileText />
+          </div>
+          <FeatureCard
+            title="Professional Quotes"
+            description="Generate clear client-ready proposals instantly."
+          />
+        </Link>
+        <Link href="/dashboard">
+          <div className="mb-3 text-black">
+            <Zap />
+          </div>
+          <FeatureCard
+            title="Save Hours"
+            description="Spend less time estimating and more time working."
+          />
+        </Link>
       </section>
     </main>
-  );
-}
-
-function Feature({
-  icon,
-  title,
-  text,
-  link,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  text: string;
-  link: string;
-}) {
-  return (
-    <Link href={link}>
-      <div
-        className="
-          rounded-2xl
-          border
-          p-8
-          transition
-          hover:shadow-xl
-          hover:-translate-y-1
-          cursor-pointer
-        "
-      >
-        <div className="mb-4 text-black">{icon}</div>
-
-        <h3 className="text-xl font-semibold">{title}</h3>
-
-        <p className="mt-3 text-gray-600">{text}</p>
-      </div>
-    </Link>
   );
 }

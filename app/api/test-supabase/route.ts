@@ -1,16 +1,27 @@
 import { supabase } from "@/lib/supabase";
 
-export async function POST() {
-  const { data, error } = await supabase.from("quotes").insert({
-    job: "test job",
-    quote: "test quote",
-    budget: "standard",
-    urgency: "normal",
-    client_type: "startup",
+export async function GET() {
+
+  const { data, error } = await supabase
+    .from("trade_pricing")
+    .select("*");
+
+
+  if (error) {
+
+    return Response.json({
+      success:false,
+      error:error.message
+    });
+
+  }
+
+
+  return Response.json({
+
+    success:true,
+
+    data
+
   });
-
-  console.log("SUPABASE DATA:", data);
-  console.log("SUPABASE ERROR:", error);
-
-  return Response.json({ ok: true, data, error });
 }

@@ -1,0 +1,13 @@
+type FeatureCardProps = {
+  title: string;
+  description: string;
+};
+
+export default function FeatureCard({ title, description }: FeatureCardProps) {
+  return (
+    <article className="rounded-2xl border bg-white p-6 shadow-sm transition hover:shadow-md">
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600">{description}</p>
+    </article>
+  );
+}
