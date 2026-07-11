@@ -94,10 +94,7 @@ Settings
 
 {/* PAGE CONTENT */}
 
-<main className="
-flex-1
-p-10
-">
+<main>
 
 {children}
 
