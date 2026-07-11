@@ -99,7 +99,7 @@ export default function WelcomePage() {
         <div className="text-center">
 
           <Link
-            href="/dashboard"
+            href="/home"
             className="
               inline-flex
               items-center
