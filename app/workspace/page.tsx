@@ -1,8 +1,8 @@
-export default function WorkspacePage(){
+export default function WorkspaceHome(){
 
 return (
 
-<div>
+<div className="text-center">
 
 <h1 className="
 text-5xl
@@ -19,7 +19,7 @@ text-xl
 mt-4
 ">
 
-Your AI-powered quoting workspace.
+Your AI-powered professional quoting workspace.
 
 </p>
 
@@ -27,7 +27,7 @@ Your AI-powered quoting workspace.
 grid
 md:grid-cols-3
 gap-6
-mt-10
+mt-12
 ">
 
 <div className="
@@ -35,10 +35,10 @@ bg-zinc-900
 border
 border-zinc-800
 rounded-3xl
-p-6
+p-8
 ">
 
-Create your first AI quote
+Create AI Quotes
 
 </div>
 
@@ -47,10 +47,10 @@ bg-zinc-900
 border
 border-zinc-800
 rounded-3xl
-p-6
+p-8
 ">
 
-View analytics
+Track Analytics
 
 </div>
 
@@ -59,10 +59,10 @@ bg-zinc-900
 border
 border-zinc-800
 rounded-3xl
-p-6
+p-8
 ">
 
-Manage your quotes
+Manage Customers
 
 </div>
 
