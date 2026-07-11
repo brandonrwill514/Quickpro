@@ -39,7 +39,7 @@ mt-10
 
 <Card
 
-href="/dashboard"
+href="/workspace/dashboard"
 
 icon={<LayoutDashboard/>}
 
@@ -51,7 +51,7 @@ description="Track business performance and analytics."
 
 <Card
 
-href="/ai-quotes"
+href="/workspace/ai-quotes"
 
 icon={<Sparkles/>}
 
@@ -63,7 +63,7 @@ description="Create accurate professional quotes with AI."
 
 <Card
 
-href="/quote-history"
+href="/workspace/quote-history"
 
 icon={<History/>}
 
@@ -75,7 +75,7 @@ description="View and manage previous quotes."
 
 <Card
 
-href="/settings"
+href="/workspace/settings"
 
 icon={<Settings/>}
 

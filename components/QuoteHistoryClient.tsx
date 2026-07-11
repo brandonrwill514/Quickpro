@@ -80,7 +80,7 @@ export default function QuoteHistoryClient() {
           <div className="rounded-2xl border border-dashed border-zinc-800 bg-zinc-900 p-6">
             <p className="text-sm text-zinc-300">No quotes yet, generate your first one.</p>
             <Link
-              href="/ai-quotes"
+              href="/workspace/ai-quotes"
               className="mt-3 inline-block rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:bg-violet-500"
             >
               Generate Quote

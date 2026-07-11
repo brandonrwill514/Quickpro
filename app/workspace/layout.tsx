@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import {
 Home,
 LayoutDashboard,
@@ -11,7 +12,7 @@ export default function WorkspaceLayout({
 children
 }:{
 children:React.ReactNode
-}){
+}) {
 
 return (
 
@@ -22,6 +23,8 @@ bg-zinc-950
 text-white
 ">
 
+{/* SIDEBAR */}
+
 <aside className="
 w-72
 bg-zinc-900
@@ -30,37 +33,57 @@ border-zinc-800
 p-6
 ">
 
+<Link href="/workspace">
+
 <h1 className="
 text-3xl
 font-bold
 mb-10
+cursor-pointer
 ">
 QuickQuo
 </h1>
 
-<nav className="space-y-4">
+</Link>
 
-<Link href="/workspace" className="flex items-center gap-3 rounded-xl p-3 hover:bg-zinc-800 transition">
+<nav className="space-y-3">
+
+<Link
+href="/workspace"
+className="nav-link"
+>
 <Home size={20}/>
 Home
 </Link>
 
-<Link href="/dashboard" className="flex items-center gap-3 rounded-xl p-3 hover:bg-zinc-800 transition">
+<Link
+href="/workspace/dashboard"
+className="nav-link"
+>
 <LayoutDashboard size={20}/>
 Dashboard
 </Link>
 
-<Link href="/ai-quotes" className="flex items-center gap-3 rounded-xl p-3 hover:bg-zinc-800 transition">
+<Link
+href="/workspace/ai-quotes"
+className="nav-link"
+>
 <Sparkles size={20}/>
 AI Professional Quotes
 </Link>
 
-<Link href="/quote-history" className="flex items-center gap-3 rounded-xl p-3 hover:bg-zinc-800 transition">
+<Link
+href="/workspace/quote-history"
+className="nav-link"
+>
 <History size={20}/>
 Quote History
 </Link>
 
-<Link href="/settings" className="flex items-center gap-3 rounded-xl p-3 hover:bg-zinc-800 transition">
+<Link
+href="/workspace/settings"
+className="nav-link"
+>
 <Settings size={20}/>
 Settings
 </Link>
@@ -68,6 +91,8 @@ Settings
 </nav>
 
 </aside>
+
+{/* PAGE CONTENT */}
 
 <main className="
 flex-1
