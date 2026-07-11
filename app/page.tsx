@@ -1,37 +1,205 @@
-import Navbar from "@/components/Navbar";
+"use client";
 
-export default function HomePage() {
-  return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-50">
-      <Navbar />
+import Link from "next/link";
+import {
+  Sparkles,
+  Clock,
+  FileText,
+  ArrowRight
+} from "lucide-react";
 
-      <section className="relative mx-auto max-w-7xl overflow-hidden px-6 py-24 text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(124,58,237,0.35),transparent_32%),radial-gradient(circle_at_80%_20%,rgba(20,184,166,0.22),transparent_22%),radial-gradient(circle_at_bottom,rgba(245,158,11,0.18),transparent_18%)]" />
-        <div className="relative mx-auto max-w-5xl">
-          <p className="mx-auto mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-zinc-300 backdrop-blur">
-            QuickQuo Home
-          </p>
+export default function LandingPage() {
 
-          <h1 className="mx-auto max-w-4xl text-5xl font-bold tracking-tight text-zinc-50 md:text-7xl">
-            AI-powered quoting
-            <br />
-            built for modern contractors.
-          </h1>
+return (
 
-          <p className="mx-auto mt-6 max-w-2xl text-xl text-zinc-400">
-            Speak your project.
-            <br />
-            AI builds your estimate.
-          </p>
+<main className="
+min-h-screen
+bg-zinc-950
+text-white
+flex
+items-center
+justify-center
+px-6
+">
 
-          <div className="mt-14 flex justify-center">
-            <div className="w-full max-w-5xl rounded-3xl border border-white/10 bg-zinc-900 p-3 shadow-2xl shadow-black/40">
-              <img src="/dashboard.png" className="w-full rounded-2xl" alt="QuickQuo dashboard preview" />
-            </div>
-          </div>
-        </div>
-      </section>
+<div className="
+max-w-5xl
+text-center
+">
 
-    </main>
-  );
+<div className="
+inline-flex
+items-center
+gap-2
+bg-violet-500/10
+text-violet-300
+px-5
+py-2
+rounded-full
+mb-8
+">
+
+<Sparkles size={18}/>
+
+AI Powered Quoting Platform
+
+</div>
+
+<h1 className="
+text-6xl
+font-bold
+mb-6
+">
+
+Welcome to QuickQuo
+
+</h1>
+
+<p className="
+text-xl
+text-zinc-400
+max-w-3xl
+mx-auto
+">
+
+Create professional quotes faster using AI.
+Save time, improve accuracy, and grow your business.
+
+</p>
+
+<div className="
+grid
+md:grid-cols-3
+gap-6
+mt-12
+">
+
+<Card
+icon={<Sparkles/>}
+title="AI Quotes"
+text="Generate professional estimates instantly."
+/>
+
+<Card
+icon={<Clock/>}
+title="Save Time"
+text="Reduce hours spent creating quotes."
+/>
+
+<Card
+icon={<FileText/>}
+title="Professional"
+text="Deliver better customer experiences."
+/>
+
+</div>
+
+<div className="
+mt-12
+flex
+justify-center
+gap-5
+">
+
+<Link
+href="/signup"
+className="
+bg-gradient-to-r
+from-violet-600
+to-teal-500
+px-8
+py-4
+rounded-xl
+font-semibold
+flex
+items-center
+gap-2
+"
+>
+
+Create Account
+
+<ArrowRight size={18}/>
+
+</Link>
+
+<Link
+href="/login"
+className="
+bg-zinc-900
+border
+border-zinc-700
+px-8
+py-4
+rounded-xl
+font-semibold
+"
+>
+
+Login
+
+</Link>
+
+</div>
+
+</div>
+
+</main>
+
+)
+
+}
+
+function Card({
+icon,
+title,
+text
+}:{
+icon:React.ReactNode;
+title:string;
+text:string;
+}){
+
+return (
+
+<div className="
+bg-zinc-900
+border
+border-zinc-800
+rounded-3xl
+p-6
+text-left
+">
+
+<div className="
+text-violet-400
+mb-4
+">
+
+{icon}
+
+</div>
+
+<h3 className="
+font-semibold
+text-xl
+">
+
+{title}
+
+</h3>
+
+<p className="
+text-zinc-400
+mt-2
+">
+
+{text}
+
+</p>
+
+</div>
+
+)
+
 }

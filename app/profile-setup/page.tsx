@@ -52,7 +52,7 @@ export default function ProfileSetupPage() {
 
       console.log(profile);
 
-      router.push("/welcome");
+      router.push("/workspace");
 
     }
 

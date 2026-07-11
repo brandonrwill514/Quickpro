@@ -11,19 +11,24 @@ import {
 
 const items = [
   {
+    title: "Home",
+    href: "/workspace",
+    icon: Mic,
+  },
+  {
     title: "Dashboard",
     href: "/dashboard",
     icon: LayoutDashboard,
   },
   {
     title: "AI Professional Quotes",
-    href: "/workspace",
-    icon: Mic,
+    href: "/ai-quotes",
+    icon: FileText,
   },
   {
     title: "Quote History",
     href: "/quote-history",
-    icon: FileText,
+    icon: Mic,
   },
   {
     title: "Settings",
