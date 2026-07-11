@@ -2,13 +2,16 @@
 
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 
 export default function ProfileSetupPage() {
+  const supabase = createClient();
 
   const router = useRouter();
 
   const [step, setStep] = useState(1);
+  const [saving, setSaving] = useState(false);
 
   const [profile, setProfile] = useState({
 
@@ -42,6 +45,46 @@ export default function ProfileSetupPage() {
 
   }
 
+  async function saveProfile() {
+    setSaving(true);
+
+    const {
+      data: {
+        user
+      }
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      setSaving(false);
+      return;
+    }
+
+    const { error } = await supabase
+      .from("profiles")
+      .insert({
+        user_id: user.id,
+        business_name: profile.businessName,
+        owner_name: profile.fullName,
+        email: user.email ?? "",
+        phone: profile.phone,
+        industry: profile.industry,
+        hourly_rate: profile.hourlyRate,
+        markup_percentage: profile.markup,
+        quote_style: profile.quoteStyle
+      });
+
+    if(error){
+
+      console.log(error);
+      setSaving(false);
+
+      return;
+
+    }
+
+    router.push("/workspace");
+  }
+
   function nextStep(){
 
     if(step < 5){
@@ -50,9 +93,7 @@ export default function ProfileSetupPage() {
 
     } else {
 
-      console.log(profile);
-
-      router.push("/workspace");
+      void saveProfile();
 
     }
 
@@ -402,7 +443,9 @@ Back
 
 <button
 
-onClick={nextStep}
+onClick={step===5 ? ()=>void saveProfile() : nextStep}
+
+disabled={saving}
 
 className="
 flex
@@ -424,7 +467,7 @@ step===5
 ?
 <>
 <Check/>
-Finish
+{saving ? "Saving..." : "Finish"}
 </>
 :
 <>

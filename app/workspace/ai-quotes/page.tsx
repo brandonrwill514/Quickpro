@@ -1,8 +1,86 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Mic } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
+
+type Profile = {
+	business_name?: string | null;
+	industry?: string | null;
+	hourly_rate?: string | null;
+	markup_percentage?: string | null;
+	quote_style?: string | null;
+};
 
 export default function AIQuotesPage(){
+const [supabase] = useState(() => createClient());
+const [description, setDescription] = useState("");
+const [profile, setProfile] = useState<Profile | null>(null);
+const [generatedQuote, setGeneratedQuote] = useState("");
+const [loading, setLoading] = useState(false);
+
+useEffect(() => {
+async function loadProfile() {
+const {
+data: profile
+} = await supabase
+.from("profiles")
+.select("*")
+.single();
+
+setProfile(profile);
+}
+
+void loadProfile();
+}, [supabase]);
+
+const prompt = `You are creating a professional quote for this company.
+
+Business:
+${profile?.business_name ?? ""}
+
+Industry:
+${profile?.industry ?? ""}
+
+Hourly Rate:
+$${profile?.hourly_rate ?? ""}
+
+Markup:
+${profile?.markup_percentage ?? ""}%
+
+Quote Style:
+${profile?.quote_style ?? ""}
+
+Project Details:
+
+${description}
+
+Create a professional customer-ready quote.`;
+
+async function generateQuote() {
+setLoading(true);
+
+try {
+const response = await fetch("/api/generate-quote", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+summary: prompt
+})
+});
+
+const data = await response.json();
+
+setGeneratedQuote(JSON.stringify(data, null, 2));
+} catch (error) {
+console.error(error);
+setGeneratedQuote("Unable to generate quote.");
+}
+
+setLoading(false);
+}
 
 return (
 
@@ -23,6 +101,10 @@ mb-8
 Create accurate professional quotes using AI.
 </p>
 
+<p className="mb-6 text-sm text-zinc-500">
+Using profile: {profile?.business_name || "No saved profile found"}
+</p>
+
 <div className="
 bg-zinc-900
 border
@@ -37,6 +119,10 @@ Describe your project
 </label>
 
 <textarea
+
+value={description}
+
+onChange={(e)=>setDescription(e.target.value)}
 
 className="
 w-full
@@ -58,6 +144,8 @@ Install a 200 amp electrical panel upgrade...
 
 <button
 
+onClick={()=>void generateQuote()}
+
 className="
 mt-5
 flex
@@ -75,9 +163,31 @@ font-semibold
 >
 
 <Mic/>
-
+{loading ? "Generating..." : "Generate Quote"}
 Speak Project
 
+
+<div className="mt-6 rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+<p className="mb-3 text-sm font-semibold text-zinc-300">
+AI Prompt
+</p>
+
+<pre className="whitespace-pre-wrap text-sm text-zinc-400">
+{prompt}
+</pre>
+</div>
+
+{generatedQuote ? (
+<div className="mt-6 rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+<p className="mb-3 text-sm font-semibold text-zinc-300">
+Generated Quote
+</p>
+
+<pre className="whitespace-pre-wrap text-sm text-zinc-400">
+{generatedQuote}
+</pre>
+</div>
+) : null}
 </button>
 
 </div>
